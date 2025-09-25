@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# sc-react-express
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+JS React / Express app with nested files for specific actions. /server/index.js file in the root /server path interacts with the /src frontend. All nested folders in /server are separate files to perform specific actions.
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+```
+/
+├── src/              # React frontend
+├── server/           # Express backend
+│   ├── index.js      # Main Express server that interacts with src/
+│   ├── johnson.elec.issues/
+│   │    └── ...      # Express scripts for SC customer operations
+│   └── ...           # Other customer scripts
+├── package.json      # Project config (root)
+└── ...
+```
 
-### `npm start`
+- **`/server/index.js`**: Entry point for the Express backend. Handles connections and routes requests to customer-specific scripts.
+- **`/src/`**: The React application frontend.
+- **`/server/[customer-folder]/`**: Each folder here (e.g., `/server/johnson.elec.issues`) contains Express scripts and routes for specific SC customer actions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Follow these steps to set up and run the project locally:
 
-### `npm test`
+### 1. Install Dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install the root dependencies:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Then install backend dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cd server
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Start the Backend Server
 
-### `npm run eject`
+From any folder's root path in the `/server` path directory, run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+node index.js
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This starts the desired Express server defined each folders `index.js`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Start the Frontend (React)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Return to the root directory and run:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This starts the React development server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Development Notes
 
-### Code Splitting
+- The index.js file in the root /server path interacts with the /src frontend. All nested folders in /server are separate files to perform specific actions. 
+- You can add new customer scripts by creating new folders and route handlers inside `/server`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Pull requests and issues are welcome! Please open an issue or PR describing the change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
